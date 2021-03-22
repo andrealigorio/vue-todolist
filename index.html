@@ -26,8 +26,8 @@
             <li v-for="(todo, index) in todoList">{{todo}}<i @click="removeTodo(index)" class="fas fa-times"></i></li>
         </ul>
         <h3 class="noTodo" v-else>Todolist vuota</h3>
-        <div class="undo">
-            <button v-if="undoControl" @click="undoTodo" class="btn">Undo</button>
+        <div v-if="undoControl" class="undo">
+            <button @click="undoTodo" class="btn">Undo</button>
         </div>
     </div>
     <script src="js/main.js"></script>

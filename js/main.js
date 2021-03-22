@@ -4,7 +4,7 @@ var root = new Vue({
     data: {
         todoList: ["Fare la spesa", "Fare il bucato"],
         newTodo: "",
-        undo: "",
+        undo: [],
         undoControl: false
     },
     methods: {
@@ -15,12 +15,16 @@ var root = new Vue({
             }
         },
         removeTodo(index) {
-            this.undo = this.todoList.splice(index, 1);
+            var deleted = this.todoList.splice(index, 1).join();
+            this.undo.push(deleted);
             this.undoControl = true;
         },
         undoTodo() {
-            this.todoList.push(this.undo[0]);
-            this.undoControl = false;
+            this.todoList.push(this.undo[this.undo.length-1]);
+            this.undo.pop();
+            if (this.undo.length == 0) {
+                this.undoControl = false;
+            }
         }
     }
 });
