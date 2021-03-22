@@ -3,7 +3,9 @@ var root = new Vue({
     el: '#root',
     data: {
         todoList: ["Fare la spesa", "Fare il bucato"],
-        newTodo: ""
+        newTodo: "",
+        undo: "",
+        undoControl: false
     },
     methods: {
         addTodo() {
@@ -13,7 +15,12 @@ var root = new Vue({
             }
         },
         removeTodo(index) {
-            this.todoList.splice(index, 1);
+            this.undo = this.todoList.splice(index, 1);
+            this.undoControl = true;
+        },
+        undoTodo() {
+            this.todoList.push(this.undo[0]);
+            this.undoControl = false;
         }
     }
 });

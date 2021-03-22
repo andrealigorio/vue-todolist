@@ -25,19 +25,19 @@ body {
 .input_todo {
     text-align: center;
 }
-.input_todo input, .input_todo button {
+.input_todo input, .btn{
     padding: 5px;
     border-radius: 10px;
     border: 1px solid #00e165;
     color: #001533;
 }
-.input_todo button {
+.btn {
     cursor: pointer;
     background-color: #00e165;
     font-weight: bold;
     margin: 10px 0;
 }
-.input_todo button:hover {
+.btn:hover {
     background-color: #001533;
     color: #00e165;
     border: 1px solid #001533;
@@ -69,6 +69,11 @@ body {
 .todo_list i:hover {
     transform: scale(2);
     transition: 0.5s;
+}
+.undo {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 25px;
 }
 .noTodo {
     margin-top: 30px;

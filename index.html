@@ -20,12 +20,15 @@
         </div>
         <div class="input_todo">
             <input @keyup.enter="addTodo" v-model="newTodo" type="text" placeholder="Nuovo Todo">
-            <button @click="addTodo">Aggiungi</button>
+            <button class="btn" @click="addTodo">Aggiungi</button>
         </div>
         <ul v-if="todoList.length > 0" class="todo_list">
             <li v-for="(todo, index) in todoList">{{todo}}<i @click="removeTodo(index)" class="fas fa-times"></i></li>
         </ul>
         <h3 class="noTodo" v-else>Todolist vuota</h3>
+        <div class="undo">
+            <button v-if="undoControl" @click="undoTodo" class="btn">Undo</button>
+        </div>
     </div>
     <script src="js/main.js"></script>
 </body>
