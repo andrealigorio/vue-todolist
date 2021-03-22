@@ -7,8 +7,10 @@ var root = new Vue({
     },
     methods: {
         addTodo() {
-            this.todoList.push(this.newTodo);
+            if (this.newTodo != "") {
+            this.todoList.push(this.newTodo.charAt(0).toUpperCase() + this.newTodo.slice(1).toLowerCase());
             this.newTodo = "";
+            }
         },
         removeTodo(index) {
             this.todoList.splice(index, 1);

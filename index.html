@@ -7,22 +7,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <title>Vue Todolist</title>
 </head>
 <body>
-    <div id="root">
+    <div id="root" class="container">
         <div id="logo">
-            <img src="" alt="">
+            <img src="img/logo.png" alt="Logo Boolean">
         </div>
         <div class="input_todo">
             <input @keyup.enter="addTodo" v-model="newTodo" type="text" placeholder="Nuovo Todo">
             <button @click="addTodo">Aggiungi</button>
         </div>
-        <ul class="todo_list">
+        <ul v-if="todoList.length > 0" class="todo_list">
             <li v-for="(todo, index) in todoList">{{todo}}<i @click="removeTodo(index)" class="fas fa-times"></i></li>
         </ul>
+        <h3 class="noTodo" v-else>Todolist vuota</h3>
     </div>
     <script src="js/main.js"></script>
 </body>
